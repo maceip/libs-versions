@@ -28,11 +28,8 @@ githubPackage {
         password = rootProject.findLocalProp("github.classicToken") ?: System.getenv("TOKEN")
     }
     packages {
-        repo("libs-versions") {
+        repo(project.name) {
             includeVersion = all()
-        }
-        repo("public") {
-            includeVersion = stableOnly()
         }
     }
 }

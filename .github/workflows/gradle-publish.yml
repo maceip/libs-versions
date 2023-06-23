@@ -35,9 +35,8 @@ jobs:
       with:
         arguments: publish
       env:
-        # 涉及到跨 repo 发布，所以这里需要使用对应的 username/token
-        USERNAME: ${{ secrets.ACTION_PACKAGE_USERNAME }}
-        TOKEN: ${{ secrets.ACTION_PACKAGE_TOKEN }}
+        USERNAME: ${{ github.actor }}
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - uses: actions-ecosystem/action-regex-match@v2
       id: regex-match
