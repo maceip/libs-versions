@@ -35,7 +35,8 @@ jobs:
       with:
         arguments: publish
       env:
-        USERNAME: ${{ github.actor }}
+        # 涉及到跨 repo 发布，所以这里需要使用对应的 username/token
+        USERNAME: ${{ secrets.ACTION_PACKAGE_USERNAME }}
         TOKEN: ${{ secrets.ACTION_PACKAGE_TOKEN }}
 
     - uses: actions-ecosystem/action-regex-match@v2
@@ -46,7 +47,6 @@ jobs:
         regex: '^[vV]?[0-9]+(.[0-9]+)+'
     - run: |
         echo "regex matched result: (${{ steps.regex-match.outputs.match }})"
-      # FIXME 针对稳定版本，并且无论成功与否都会发
     - name: Notify package added
       uses: actions-ecosystem/action-create-issue@v1
       if: ${{ steps.regex-match.outputs.match == github.event.release.tag_name  }}
