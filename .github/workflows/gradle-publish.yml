@@ -36,7 +36,7 @@ jobs:
         arguments: publish
       env:
         USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TOKEN: ${{ secrets.ACTION_PACKAGE_TOKEN }}
 
     - uses: actions-ecosystem/action-regex-match@v2
       id: regex-match
