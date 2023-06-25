@@ -52,10 +52,13 @@ publishing {
     }
 
     signing {
+        // Subkeys
         val SIGNING_KEY_ID = System.getenv("SIGNING_KEY_ID")
+        // gpg --armor --export
         val SIGNING_KEY = System.getenv("SIGNING_KEY")
+        // this key password
         val SIGNING_PASSWORD = System.getenv("SIGNING_PASSWORD")
-        useInMemoryPgpKeys(SIGNING_KEY_ID, SIGNING_KEY, SIGNING_PASSWORD)
+        useInMemoryPgpKeys(SIGNING_KEY_ID.chunked(64).joinToString("\n"), SIGNING_KEY, SIGNING_PASSWORD)
         sign(publishing.publications)
     }
 }
