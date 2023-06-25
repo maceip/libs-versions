@@ -1,6 +1,7 @@
 plugins {
     `version-catalog`
     `maven-publish`
+    signing
 }
 
 group = "io.github.foodiestudio"
@@ -27,6 +28,11 @@ publishing {
                         url.set("https://github.com/foodiestudio/libs-versions/blob/main/LICENSE")
                     }
                 }
+                scm {
+                    url.set("https://github.com/foodiestudio/libs-versions")
+                    connection.set("scm:git:https://github.com/foodiestudio/libs-versions.git")
+                    developerConnection.set("scm:git:https://github.com/foodiestudio/libs-versions.git")
+                }
             }
         }
     }
@@ -43,5 +49,13 @@ publishing {
                 password = System.getenv("MAVEN_PASSWORD")
             }
         }
+    }
+
+    signing {
+        val SIGNING_KEY_ID = System.getenv("SIGNING_KEY_ID")
+        val SIGNING_KEY = System.getenv("SIGNING_KEY")
+        val SIGNING_PASSWORD = System.getenv("SIGNING_PASSWORD")
+        useInMemoryPgpKeys(SIGNING_KEY_ID, SIGNING_KEY, SIGNING_PASSWORD)
+        sign(publishing.publications)
     }
 }
