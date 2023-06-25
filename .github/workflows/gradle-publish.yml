@@ -29,15 +29,6 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-    - name: Publish to GitHub Packages
-      id: publish
-      uses: gradle/gradle-build-action@v2.4.2
-      with:
-        arguments: publish
-      env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - uses: actions-ecosystem/action-regex-match@v2
       id: regex-match
       with:
@@ -46,11 +37,12 @@ jobs:
         regex: '^[vV]?[0-9]+(.[0-9]+)+'
     - run: |
         echo "regex matched result: (${{ steps.regex-match.outputs.match }})"
-    - name: Notify package added
-      uses: actions-ecosystem/action-create-issue@v1
+    - name: Publish Packages
+      id: publish
+      uses: gradle/gradle-build-action@v2.4.2
       if: ${{ steps.regex-match.outputs.match == github.event.release.tag_name  }}
       with:
-        github_token: ${{ secrets.ACTION_ISSUE_TOKEN }}
-        repo: foodiestudio/public
-        title: ${{ github.repository }} | ${{ github.event.release.tag_name }} package created
-        body: ${{ github.event.release.body }}
+        arguments: publish
+      env:
+        MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+        MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
