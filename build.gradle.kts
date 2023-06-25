@@ -28,6 +28,13 @@ publishing {
                         url.set("https://github.com/foodiestudio/libs-versions/blob/main/LICENSE")
                     }
                 }
+                developers {
+                    developer {
+                        id.set("kkoshin")
+                        name.set("Ko Shin")
+                        email.set("koshin.1116@gmail.com")
+                    }
+                }
                 scm {
                     url.set("https://github.com/foodiestudio/libs-versions")
                     connection.set("scm:git:https://github.com/foodiestudio/libs-versions.git")
