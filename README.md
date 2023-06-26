@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("sharedLibs") {
-            from("com.github.foodiestudio:libs-versions:$version")
+            from("io.github.foodiestudio:libs-versions:$version")
         }
     }
 }
