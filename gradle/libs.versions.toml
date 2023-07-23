@@ -5,11 +5,11 @@ lint = "30.2.0"
 ksp = "1.8.0-1.0.8"
 sqldelight = "1.5.4"
 # https://developer.android.google.cn/jetpack/androidx/releases/compose-kotlin
-compose-compiler = "1.4.0!!"
+compose-compiler = "1.4.1!!"
 
 # langauge and platform
 kotlin = "1.8.0!!"
-composeBom = "2023.01.00" # kotlin 1.8.0
+composeBom = "2023.03.00" # kotlin 1.8.0
 activity-compose = "1.5.1"
 lifecycle = "2.5.1"
 datastore = "1.0.0"
@@ -19,7 +19,7 @@ junit-android = "1.1.5"
 espresso = "3.5.1"
 
 # internal
-sugar = { strictly = "[0.0.1, 0.1.0[", prefer = "0.0.1-rc.9" }
+sugar = "1.0.0-rc.6"
 dev-tools = { strictly = "[0.0.1, 0.1.0[", prefer = "0.0.1" }
 theme = { strictly = "[0.1.0, 1.0.0[", prefer = "0.1.4-rc.1" }
 ctc = { strictly = "[0.1.0, 1.0.0[", prefer = "0.1.1" }
