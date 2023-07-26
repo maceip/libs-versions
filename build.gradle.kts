@@ -4,8 +4,8 @@ plugins {
     signing
 }
 
-group = "io.github.foodiestudio"
-version = "2023.03.00"
+group = "io.github.maceip"
+version = "2023.08.00"
 
 catalog {
     // declare the aliases, bundles and versions in this block
@@ -21,24 +21,24 @@ publishing {
             pom {
                 name.set("libs-versions")
                 description.set("A version catalog")
-                url.set("https://github.com/foodiestudio/libs-versions")
+                url.set("https://github.com/maceip/libs-versions")
                 licenses {
                     license {
                         name.set("MIT License")
-                        url.set("https://github.com/foodiestudio/libs-versions/blob/main/LICENSE")
+                        url.set("https://github.com/maceip/libs-versions/blob/main/LICENSE")
                     }
                 }
                 developers {
                     developer {
-                        id.set("kkoshin")
-                        name.set("Ko Shin")
-                        email.set("koshin.1116@gmail.com")
+                        id.set("maceip")
+                        name.set("mac")
+                        email.set("mac@polyset.xyz")
                     }
                 }
                 scm {
-                    url.set("https://github.com/foodiestudio/libs-versions")
-                    connection.set("scm:git:https://github.com/foodiestudio/libs-versions.git")
-                    developerConnection.set("scm:git:https://github.com/foodiestudio/libs-versions.git")
+                    url.set("https://github.com/maceip/libs-versions")
+                    connection.set("scm:git:https://github.com/maceip/libs-versions.git")
+                    developerConnection.set("scm:git:https://github.com/maceip/libs-versions.git")
                 }
             }
         }
